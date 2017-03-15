@@ -70,7 +70,7 @@ POST /publicapi/places
 - `links` (optional)
   - **Valid values:** Array of link objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "type" : "website",
@@ -89,7 +89,7 @@ POST /publicapi/places
 - `personas` (optional)
   - **Valid values:** Array of persona objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "name": "Your name",
@@ -111,7 +111,7 @@ POST /publicapi/places
 - `availability` (optional)
   - **Valid values:** Array of availiability objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "start" : "1-1-2017",
@@ -134,7 +134,7 @@ POST /publicapi/places
 - `opening_hours` (optional)
   - **Valid values:** Array of opening_hour objects  
     - **Example:**
-    ```
+    ```json
     [
       {
         "note": "Business opening hours",
@@ -202,7 +202,7 @@ POST /publicapi/places
   - **Valid values:** Id of the custom marker you want to add
 
 #### Full Example
-```
+```json
 {
   "name": "My first API Place",
   "geolat": "60.543232",
@@ -285,7 +285,7 @@ POST /publicapi/places
 ```
 
 #### Response
-```
+```json
 {
   "url": "xljh6of-nuntyhp-n3mde0p",
   "name": "My first API Place",
@@ -419,7 +419,7 @@ DELETE /publicapi/places/{url}
 - `url` The identifying url of a place
 
 #### Response
-```
+```json
 {
   "message": "Place succesfully deleted",
   "code": "200"
@@ -516,7 +516,7 @@ POST /publicapi/lists
 - `links` (optional)
   - **Valid values:** Array of link objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "type" : "website",
@@ -535,7 +535,7 @@ POST /publicapi/lists
 - `personas` (optional)
   - **Valid values:** Array of persona objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "name": "Your name",
@@ -557,7 +557,7 @@ POST /publicapi/lists
 - `availability` (optional)
   - **Valid values:** Array of availiability objects
     - **Example:**
-    ```
+    ```json
     [
       {
         "start" : "1-1-2017",
@@ -580,7 +580,7 @@ POST /publicapi/lists
 - `opening_hours` (optional)
   - **Valid values:** Array of opening_hour objects  
     - **Example:**
-    ```
+    ```json
     [
       {
         "note": "Business opening hours"
@@ -646,7 +646,7 @@ POST /publicapi/lists
   - **Valid values:** String of 2-45 characters long, no spaces, only letters, numbers, _ and -
 
 #### Full Example
-```
+```json
 {
   "name": "My first API List",
   "description": "My list description goes here.",
@@ -726,7 +726,7 @@ POST /publicapi/lists
 ```
 
 #### Response
-```
+```json
 {
   "url": "xlezaf-nunezae-n3mde0p",
   "name": "My first API List",
@@ -843,7 +843,7 @@ DELETE /publicapi/lists/{url}
 - `url` The identifying url of a list
 
 #### Response
-```
+```json
 {
   "message": "List succesfully deleted",
   "code": "200"
@@ -868,7 +868,7 @@ POST /publicapi/lists/{url}/add
     - **Example:** `[ "listay1-432rez43-432azer" , "listty45-432rez43-432aqaz" ]`
 
 #### Full Example
-```
+```json
 {
   places: [
     'azerty1-432rez43-432azer',
@@ -899,7 +899,7 @@ POST /publicapi/lists/{url}/remove
     - **Example:** `[ "listay1-432rez43-432azer" , "listty45-432rez43-432aqaz" ]`
 
 #### Full Example
-```
+```json
 {
   places: [
     'azerty1-432rez43-432azer',
