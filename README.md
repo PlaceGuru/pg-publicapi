@@ -137,7 +137,7 @@ POST /publicapi/places
     ```
     [
       {
-        "note": "Business opening hours"
+        "note": "Business opening hours",
         "hours": [
           {
             "day":"1",
@@ -215,8 +215,8 @@ POST /publicapi/places
   "phone_number": "123-45678-90",
   "email": "you@company.come",
   "videos": [
-    "link_1",
-    "link_2"
+    "https://www.youtube.com/embed/zy41l5iYoBw",
+    "https://player.vimeo.com/video/192438480"
   ],
   "links": [
     {
@@ -253,7 +253,7 @@ POST /publicapi/places
   ],
   "opening_hours": [
     {
-      "note": "Business opening hours"
+      "note": "Business opening hours",
       "hours": [
         {
           "day":"1",
@@ -281,6 +281,108 @@ POST /publicapi/places
   "tags": [ "tag", "your", "place" ],
   "custom_url": "my_custom_url",
   "custom_marker": 32
+}
+```
+
+#### Response
+```
+{
+  "url": "xljh6of-nuntyhp-n3mde0p",
+  "name": "My first API Place",
+  "geolat": "60.543232",
+  "geolng": "30.321432",
+  "published": true,
+  "mails_enabled": false,
+  "comments_enabled": true,
+  "description": "My place description goes here.",
+  "address": "SomeRoad 13, SomeCity",
+  "phone_number": "123-45678-90",
+  "email": "you@company.come",
+  "videos": [
+    "https://www.youtube.com/embed/zy41l5iYoBw",
+    "https://player.vimeo.com/video/192438480"
+  ],
+  "personas": [
+    {
+      "name": "Your name",
+      "title": "Your company title",
+      "url": "azerty12"
+    },
+    {
+      "name": "Your CTO's name",
+      "title": "Company CTO"
+    }
+  ],
+  "availability": [
+    {
+      "start": "1-1-2017",
+      "end": "25-02-2017",
+      "note": "Only available via phone"
+    },
+    {
+      "start": "28-02-2017",
+      "end": "14-03-2017",
+      "note": "We're on ski break"
+    }
+  ],
+  "links": [
+    {
+      "url": "http://my.site.com",
+      "type": "website"
+    },
+    {
+      "url": "https://twitter.com/myCompany",
+      "type": "twitter"
+    }
+  ],
+  "opening_hours": [
+    {
+      "note": "Business opening hours",
+      "hours": [
+        {
+          "day": "1",
+          "open": "08:30",
+          "close": "17:00"
+        },
+        {
+          "day": "2",
+          "open": "08:30",
+          "close": "12:00"
+        },
+        {
+          "day": "2",
+          "open": "13:30",
+          "close": "17:00"
+        },
+        {
+          "day": "5",
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ]
+    }
+  ],
+  "suggested_address": "41K-17, Leningradskaya oblast', Russia, 188730",
+  "country": "Russia",
+  "region": "Leningradskaya oblast'",
+  "subregion": "Priozerskiy rayon",
+  "city": "",
+  "id": 441,
+  "custom_url": "my_custom_url",
+  "tags": [
+    "tag",
+    "your",
+    "place"
+  ],
+  "custom_marker": {
+    "id": 32,
+    "name": "Cheese",
+    "path": "/assets/stickers/Food%20and%20drinks/Cheese.png",
+    "category": "Food and drinks",
+    "size_x": 45,
+    "size_y": 45,
+    "color": null
+  }
 }
 ```
 
@@ -316,6 +418,13 @@ DELETE /publicapi/places/{url}
 #### URL parameters
 - `url` The identifying url of a place
 
+#### Response
+```
+{
+  "message": "Place succesfully deleted",
+  "code": "200"
+}
+```
 
 ## Add image to place
 ```
@@ -499,7 +608,7 @@ POST /publicapi/lists
         ]
       },
       {
-        "note": "Callcenter opening hours"
+        "note": "Callcenter opening hours",
         "hours": [
           {
             "day":"1",
@@ -548,8 +657,8 @@ POST /publicapi/lists
   "phone_number": "123-45678-90",
   "email": "you@company.come",
   "videos": [
-    "link_1",
-    "link_2"
+    "https://www.youtube.com/embed/zy41l5iYoBw",
+    "https://player.vimeo.com/video/192438480"
   ],
   "links": [
     {
@@ -586,7 +695,7 @@ POST /publicapi/lists
   ],
   "opening_hours": [
     {
-      "note": "Business opening hours"
+      "note": "Business opening hours",
       "hours": [
         {
           "day":"1",
@@ -613,6 +722,91 @@ POST /publicapi/lists
   ],
   "tags": [ "tag", "your", "list" ],
   "custom_url": "my_custom_url"
+}
+```
+
+#### Response
+```
+{
+  "url": "xlezaf-nunezae-n3mde0p",
+  "name": "My first API List",
+  "published": true,
+  "mails_enabled": false,
+  "comments_enabled": true,
+  "description": "My list description goes here.",
+  "address": "SomeRoad 13, SomeCity",
+  "phone_number": "123-45678-90",
+  "email": "you@company.come",
+  "videos": [
+    "https://www.youtube.com/embed/zy41l5iYoBw",
+    "https://player.vimeo.com/video/192438480"
+  ],
+  "personas": [
+    {
+      "name": "Your name",
+      "title": "Your company title",
+      "url": "azerty12"
+    },
+    {
+      "name": "Your CTO's name",
+      "title": "Company CTO"
+    }
+  ],
+  "availability": [
+    {
+      "start": "1-1-2017",
+      "end": "25-02-2017",
+      "note": "Only available via phone"
+    },
+    {
+      "start": "28-02-2017",
+      "end": "14-03-2017",
+      "note": "We're on ski break"
+    }
+  ],
+  "links": [
+    {
+      "url": "http://my.site.com",
+      "type": "website"
+    },
+    {
+      "url": "https://twitter.com/myCompany",
+      "type": "twitter"
+    }
+  ],
+  "opening_hours": [
+    {
+      "note": "Business opening hours",
+      "hours": [
+        {
+          "day": "1",
+          "open": "08:30",
+          "close": "17:00"
+        },
+        {
+          "day": "2",
+          "open": "08:30",
+          "close": "12:00"
+        },
+        {
+          "day": "2",
+          "open": "13:30",
+          "close": "17:00"
+        },
+        {
+          "day": "5",
+          "open": "08:30",
+          "close": "17:00"
+        }
+      ]
+    }
+  ],
+  "custom_url": "my_custom_url",
+  "tags": [
+    "tag",
+    "your",
+    "place"
+  ]
 }
 ```
 
@@ -647,6 +841,14 @@ DELETE /publicapi/lists/{url}
 
 #### URL parameters
 - `url` The identifying url of a list
+
+#### Response
+```
+{
+  "message": "List succesfully deleted",
+  "code": "200"
+}
+```
 
 ## Add places/lists to lists
 ```
