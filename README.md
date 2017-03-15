@@ -60,13 +60,13 @@ POST /publicapi/places
 - `address` (optional)
   - **Valid values:** Text string of maximum 255 characters
 - `phone_number` (optional)
-  - ** values:** Text string of maximum 255 characters
+  - **Valid values:** Text string of maximum 255 characters
 - `email` (optional)
   - **Valid values:** E-mail address of maximum 255 characters
 - `videos` (optional)
   - **Valid values:** Array of urls for embedded videos
     - **Example:** `[ "link_1" , "link_2" ]`
-    **TODO:** What kind of URLs will we allow, parse them in backend or not, ..., exampple links?
+    **TODO:** What kind of URLs will we allow, parse them in backend or not, ..., example links?
 - `links` (optional)
   - **Valid values:** Array of link objects
     - **Example:**
@@ -317,6 +317,31 @@ DELETE /publicapi/places/{url}
 - `url` The identifying url of a place
 
 
+## Add image to place
+```
+POST /publicapi/places/{url}/images
+```
+
+#### URL parameters
+- `url` The identifying url of a place
+
+#### Arguments
+- `image` (required)
+  - **Valid values:** FILE
+
+**TODO** response, example?
+
+## Remove image from place
+```
+DELETE /publicapi/place/{url}/images/{id}
+```
+
+#### URL parameters
+- `url` The identifying url of a place
+- `id` The id of the image you want to remove
+
+**TODO** response, example?
+
 
 # Lists
 
@@ -326,7 +351,7 @@ DELETE /publicapi/places/{url}
 GET /publicapi/lists
 ```
 
-No other parameters
+**TODO: Example output**
 
 
 ## Get List
@@ -334,6 +359,8 @@ No other parameters
 ```
 GET /publicapi/lists/{url}
 ```
+
+**TODO: Example output**
 
 #### URL parameters
 - `url` The identifying url of a list
@@ -370,7 +397,7 @@ POST /publicapi/lists
 - `address` (optional)
   - **Valid values:** Text string of maximum 255 characters
 - `phone_number` (optional)
-  - ** values:** Text string of maximum 255 characters
+  - **Valid values:** Text string of maximum 255 characters
 - `email` (optional)
   - **Valid values:** E-mail address of maximum 255 characters
 - `videos` (optional)
@@ -508,8 +535,6 @@ POST /publicapi/lists
     - **Example:** `[ "tag" , "your" , "list" ]`
 - `custom_url` (optional)
   - **Valid values:** String of 2-45 characters long, no spaces, only letters, numbers, _ and -
-- `custom_marker` (optional)
-  - **Valid values:** Id of the custom marker you want to add
 
 #### Full Example
 ```
@@ -587,8 +612,7 @@ POST /publicapi/lists
     }
   ],
   "tags": [ "tag", "your", "list" ],
-  "custom_url": "my_custom_url",
-  "custom_marker": 32
+  "custom_url": "my_custom_url"
 }
 ```
 
@@ -623,3 +647,149 @@ DELETE /publicapi/lists/{url}
 
 #### URL parameters
 - `url` The identifying url of a list
+
+## Add places/lists to lists
+```
+POST /publicapi/lists/{url}/add
+```
+
+#### URL parameters
+- `url` The identifying url of a list
+
+#### Arguments
+
+- `places` (optional)
+  - **Valid values:** Array of urls for places you want to attach
+    - **Example:** `[ "azerty1-432rez43-432azer" , "qwerty45-432rez43-432azer" ]`
+- `children` (optional)
+  - **Valid values:** Array of urls for lists you want to attach
+    - **Example:** `[ "listay1-432rez43-432azer" , "listty45-432rez43-432aqaz" ]`
+
+#### Full Example
+```
+{
+  places: [
+    'azerty1-432rez43-432azer',
+    'qwerty45-432rez43-432azer'
+  ],
+  children: [
+    'listay1-432rez43-432azer',
+    'listty45-432rez43-432aqaz'
+  ]
+}
+```
+
+## Remove places/lists to lists
+```
+POST /publicapi/lists/{url}/remove
+```
+
+#### URL parameters
+- `url` The identifying url of a list
+
+#### Arguments
+
+- `places` (optional)
+  - **Valid values:** Array of urls for places you want to remove
+    - **Example:** `[ "azerty1-432rez43-432azer" , "qwerty45-432rez43-432azer" ]`
+- `children` (optional)
+  - **Valid values:** Array of urls for lists you want to remove
+    - **Example:** `[ "listay1-432rez43-432azer" , "listty45-432rez43-432aqaz" ]`
+
+#### Full Example
+```
+{
+  places: [
+    'azerty1-432rez43-432azer',
+    'qwerty45-432rez43-432azer'
+  ],
+  children: [
+    'listay1-432rez43-432azer',
+    'listty45-432rez43-432aqaz'
+  ]
+}
+```
+
+## Add image to list
+```
+POST /publicapi/lists/{url}/images
+```
+
+#### URL parameters
+- `url` The identifying url of a list
+
+#### Arguments
+- `image` (required)
+  - **Valid values:** FILE
+
+**TODO** response, example?
+
+## Remove image from list
+```
+DELETE /publicapi/lists/{url}/images/{id}
+```
+
+#### URL parameters
+- `url` The identifying url of a list
+- `id` The id of the image you want to remove
+
+**TODO** response, example?
+
+# Custom markers
+
+## Get all custom markers
+
+```
+GET /publicapi/custommarkers
+```
+
+**TODO: Example output**
+
+## Upload custom marker
+```
+POST /publicapi/custommarkers
+```
+
+#### Arguments
+- `image` (required)
+  - **Valid values:** FILE, maximum 100 kB, jpeg, gif or png
+
+## Delete custom marker
+```
+DELETE /publicapi/custommarkers/{id}
+```
+
+#### URL parameters
+- `id` The id of the custom marker you want to remove  
+You can only remove your own custom markers
+
+**TODO** response, example?
+
+
+
+Under construction
+
+```
+Invite person to list				
+Invite		
+"[
+   'email1',
+   'email2',
+   'email3'
+]"		
+Array van e-mail adressen om mensen mee uit te nodigen voor een lijst
+
+
+Uninvite		
+"[
+   'email1',
+   'email2',
+   'email3'
+]"		
+Zelfde maar omgekeerd
+
+
+
+createPlaceInList	POST /lists/{url}/places	...		
+Maak nieuwe plaats, en zet ze meteen in lijst, mss multiple toelaten?
+```
